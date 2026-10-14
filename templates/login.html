@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>EcoTracker - Accedi</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="card">
+        <h2>🌱 EcoTracker Login</h2>
+        {% block content %}
+        {% if error %}
+            <p class="error-msg">{{ error }}</p>
+        {% endif %}
+        {% endblock %}
+        <form action="/" method="POST">
+            <div class="form-group">
+                <label>Email:</label>
+                <input type="text" name="email" placeholder="esempio@email.com" required>
+            </div>
+            <div class="form-group">
+                <label>Password:</label>
+                <input type="password" name="password" placeholder="Inserisci la password" required>
+            </div>
+            <button type="submit">Accedi</button>
+        </form>
+        <a href="/reg" class="link-btn">Non hai un account? Registrati qui</a>
+    </div>
+</body>
+</html>

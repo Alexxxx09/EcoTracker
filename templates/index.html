@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>EcoTracker - Questionario</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="card">
+        <h2>Benvenuto, {{ email }}! 🌿</h2>
+        <p>Rispondi al questionario per stimare la tua impronta di CO₂ giornaliera.</p>
+
+        <!-- QUESTIONARIO SULLE ABITUDINI -->
+        <form action="/index" method="POST">
+            
+            <!-- Domanda 1: Numero -->
+            <div class="form-group">
+                <label>1. Spostamenti in Auto</label>
+                <div class="note">(Scrivi un numero: quanti chilometri fai in auto al giorno?)</div>
+                <input type="number" step="0.1" name="km_auto" min="0" value="0" required>
+            </div>
+
+            <!-- Domanda 2: Selettore -->
+            <div class="form-group">
+                <label>2. Stile Alimentare</label>
+                <div class="note">(Seleziona dal menu a tendina la tua dieta tipo)</div>
+                <select name="dieta" required>
+                    <option value="molta_carne">Carne quasi tutti i giorni</option>
+                    <option value="moderata">Carne o Pesce 2-3 volte a settimana</option>
+                    <option value="vegetariana">Vegetariana (no carne/pesce)</option>
+                    <option value="vegana">Vegana (100% vegetale)</option>
+                </select>
+            </div>
+
+            <!-- Domanda 3: Numero -->
+            <div class="form-group">
+                <label>3. Riscaldamento Domestico</label>
+                <div class="note">(Scrivi un numero: quante ore al giorno è acceso il riscaldamento?)</div>
+                <input type="number" step="0.5" name="ore_riscaldamento" min="0" max="24" value="0" required>
+            </div>
+
+            <button type="submit">Calcola Emissioni</button>
+        </form>
+        <br>
+        <a href="/logout" class="link-btn logout-btn">Disconnettiti</a>
+    </div>
+</body>
+</html>

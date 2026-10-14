@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>EcoTracker - Registrazione</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="card">
+        <h2>📝 Registrazione</h2>
+        <form action="/reg" method="POST">
+            <div class="form-group">
+                <label>Email:</label>
+                <input type="text" name="email" placeholder="esempio@email.com" required>
+            </div>
+            <div class="form-group">
+                <label>Password:</label>
+                <input type="password" name="password" placeholder="Crea una password" required>
+            </div>
+            <button type="submit">Crea Account</button>
+        </form>
+        <a href="/" class="link-btn">Torna al Login</a>
+    </div>
+</body>
+</html>

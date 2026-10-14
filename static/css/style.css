@@ -1,0 +1,106 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #eaf5ea;
+    color: #2b3a2b;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 20px;
+}
+
+h2, h3 {
+    color: #2e7d32;
+    margin-top: 0;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.note {
+    font-size: 0.85em;
+    color: #555555;
+    margin-bottom: 5px;
+}
+
+input[type="text"], input[type="password"], input[type="number"], select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #2e7d32;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1b5e20;
+}
+
+.error-msg {
+    color: #c62828;
+    font-weight: bold;
+}
+
+.result-box {
+    background-color: #e8f5e9;
+    border-left: 5px solid #2e7d32;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 4px;
+}
+
+.link-btn {
+    display: inline-block;
+    margin-top: 15px;
+    color: #2e7d32;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.logout-btn {
+    color: #c62828;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+table, th, td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+    font-size: 0.9em;
+}
+
+th {
+    background-color: #f1f8e9;
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>EcoTracker - Questionario</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- RISULTATO DEL TEST CORRENTE -->
+        {% if risultato %}
+        <div class="result-box">
+            <h3>📊 Risultato del Test</h3>
+            <p>Emetti circa <strong>{{ risultato.totale }} kg di CO₂</strong> al giorno.</p>
+            <ul>
+                <li>🚗 Trasporti: {{ risultato.trasporti }} kg</li>
+                <li>🥗 Cibo: {{ risultato.cibo }} kg</li>
+                <li>🔥 Riscaldamento: {{ risultato.casa }} kg</li>
+            </ul>
+            <p>💡 <strong>Commento:</strong> L'ambito in cui consumi di più è <strong>{{ risultato.maggiore }}</strong>.</p>
+        </div>
+        {% endif %}
+</body>
+</html>

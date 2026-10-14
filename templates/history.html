@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>EcoTracker - Questionario</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- STORICO SALVATO NEL DATABASE -->
+        {% block content %}
+        {% if storico %}
+        <hr>
+        <h3>📜 I tuoi test precedenti</h3>
+        <table>
+            <tr>
+                <th>Test #</th>
+                <th>CO₂ Totale</th>
+                <th>Maggior Consumo</th>
+            </tr>
+            {% for test in storico %}
+            <tr>
+                <td>{{ test.id }}</td>
+                <td>{{ test.co2_totale }} kg</td>
+                <td>{{ test.maggior_impatto }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
+        {% endblock %}
+</body>
+</html>
