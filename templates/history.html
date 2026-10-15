@@ -2,15 +2,14 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>EcoTracker - Questionario</title>
+    <title>EcoTracker - Cronologia</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <!-- STORICO SALVATO NEL DATABASE -->
-        {% block content %}
+    <div class="card">
+        <h2>📜 Cronologia Test per {{ email }}</h2>
+
         {% if storico %}
-        <hr>
-        <h3>📜 I tuoi test precedenti</h3>
         <table>
             <tr>
                 <th>Test #</th>
@@ -25,7 +24,13 @@
             </tr>
             {% endfor %}
         </table>
+        {% else %}
+        <p>Non hai ancora effettuato nessun test.</p>
         {% endif %}
-        {% endblock %}
+
+        <br>
+        <a href="/index" class="link-btn">← Torna al Questionario</a> | 
+        <a href="/logout" class="link-btn logout-btn">Disconnettiti</a>
+    </div>
 </body>
 </html>
