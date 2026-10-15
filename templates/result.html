@@ -10,6 +10,7 @@
         <h2>Risultati per {{ email }} 🌿</h2>
 
         <!-- RISULTATO DEL TEST CORRENTE -->
+        {% block content %}
         {% if risultato %}
         <div class="result-box">
             <h3>📊 Risultato del Test</h3>
@@ -30,6 +31,7 @@
             <img src="data:image/png;base64,{{ grafico }}" alt="Grafico a barre delle emissioni di CO2 per categoria" style="max-width: 100%; border-radius: 8px;">
         </div>
         {% endif %}
+        {% endblock %}
 
         <br>
         <a href="/index" class="link-btn">🔄 Fai un altro test</a> | 
