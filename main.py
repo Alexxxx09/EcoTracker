@@ -6,7 +6,7 @@ import base64
 from io import BytesIO
 
 import matplotlib
-matplotlib.use('Agg')  # Backend senza finestra grafica per server web
+matplotlib.use('Agg')  
 import matplotlib.pyplot as plt
 import seaborn as sns
 
@@ -23,7 +23,7 @@ class User(db.Model):
     email = db.Column(db.String(100), nullable=False, unique=True)
     password = db.Column(db.String(100), nullable=False)
 
-# Modello Tabella Risultati Test (Aggiornato con nuove domande)
+# Modello Tabella Risultati Test 
 class TestResult(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     user_email = db.Column(db.String(100), nullable=False)
@@ -108,7 +108,6 @@ def grafico_a_torta(risultato):
         risultato['doccia']
     ]
 
-    # Filtra eventuali valori pari a 0 per evitare sovrapposizioni nelle etichette
     valori_filtrati = []
     categorie_filtrate = []
     for v, c in zip(valori, categorie):
