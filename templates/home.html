@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoTracker - Scopri il tuo Impatto Ambientale</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- BARRA DI NAVIGAZIONE SUPERIORE -->
+    <nav class="navbar">
+        <div class="nav-logo">🌱 EcoTracker</div>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            {% if session.get('user_email') %}
+                <a href="/index">Questionario</a>
+                <a href="/history">Cronologia</a>
+                <a href="/logout" class="nav-btn-logout">Logout</a>
+            {% else %}
+                <a href="/login">Accedi</a>
+                <a href="/reg" class="nav-btn">Registrati</a>
+            {% endif %}
+        </div>
+    </nav>
+
+    <!-- CONTENUTO PRINCIPALE HOME PAGE -->
+    <div class="home-container">
+        
+        <!-- SEZIONE HERO / BENVENUTO -->
+        <header class="hero-section">
+            <h1>Misura la tua impronta sul pianeta 🌍</h1>
+            <p>
+                Ogni piccola abitudine quotidiana genera emissioni di CO₂. 
+                Con <strong>EcoTracker</strong> puoi calcolare la tua stima giornaliera basata su 5 ambiti chiave, 
+                individuare i tuoi settori di maggior impatto e scoprire come ridurre la tua impronta ecologica.
+            </p>
+            <div class="hero-buttons">
+                {% if session.get('user_email') %}
+                    <a href="/index" class="btn-primary">Inizia il Questionario</a>
+                {% else %}
+                    <a href="/login" class="btn-primary">Accedi per Iniziare</a>
+                    <a href="/reg" class="btn-secondary">Crea un Account</a>
+                {% endif %}
+            </div>
+        </header>
+
+        <!-- SEZIONE INFORMATIVA (GRIGLIA A SCHEDE PER LE 5 AREE) -->
+        <section class="info-grid" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+            <div class="info-card" style="flex: 1 1 250px; min-width: 220px;">
+                <div class="info-icon">🚗</div>
+                <h3>Trasporti</h3>
+                <p>Gli spostamenti in auto alimentata a combustibile fossile rilasciano elevate quantità di carbonio nell'atmosfera.</p>
+            </div>
+
+            <div class="info-card" style="flex: 1 1 250px; min-width: 220px;">
+                <div class="info-icon">🥗</div>
+                <h3>Alimentazione</h3>
+                <p>La produzione di cibo, in particolare legata agli allevamenti intensivi, incide notevolmente sul bilancio della CO₂.</p>
+            </div>
+
+            <div class="info-card" style="flex: 1 1 250px; min-width: 220px;">
+                <div class="info-icon">🔥</div>
+                <h3>Riscaldamento</h3>
+                <p>L'energia impiegata per riscaldare la casa durante i mesi freddi genera emissioni continue di gas serra.</p>
+            </div>
+
+            <div class="info-card" style="flex: 1 1 250px; min-width: 220px;">
+                <div class="info-icon">🥤</div>
+                <h3>Plastica Monouso</h3>
+                <p>La produzione e lo smaltimento delle bottiglie di plastica monouso generano un'impronta di carbonio evitabile usando la borraccia.</p>
+            </div>
+
+            <div class="info-card" style="flex: 1 1 250px; min-width: 220px;">
+                <div class="info-icon">🚿</div>
+                <h3>Consumo d'Acqua</h3>
+                <p>L'energia necessaria alla caldaia per scaldare l'acqua delle docce prolungate incide direttamente sui consumi energetici.</p>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- PIÈ DI PAGINA -->
+    <footer class="footer">
+        <p>EcoTracker - Progetto per la sostenibilità ambientale e la sensibilizzazione sul clima di Alexandra Sophie Tozzi.</p>
+    </footer>
+
+</body>
+</html>
