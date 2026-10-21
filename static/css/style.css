@@ -1,93 +1,236 @@
+/* Layout Generale */
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background-color: #eaf5ea;
-    color: #2b3a2b;
+    font-family: 'Tahoma', system-ui, -apple-system, sans-serif;
+    background-color: #d0f4d3; 
+    background-image: url('../images/watercolour_green.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: #1b4332;
     margin: 0;
     padding: 20px;
+    min-height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
 }
 
+/* NAVBAR SUPERIORE */
+.navbar {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+.nav-logo {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+.nav-links a {
+    margin-left: 15px;
+    text-decoration: none;
+    color: #2b3a2b;
+    font-weight: 600;
+}
+
+.nav-btn {
+    background-color: #2e7d32;
+    color: white !important;
+    padding: 8px 15px;
+    border-radius: 6px;
+}
+
+.nav-btn-logout {
+    color: #d90429 !important;
+}
+
+/* HOME CONTAINER */
+.home-container {
+    max-width: 900px;
+    margin: 100px auto 40px auto;
+    width: 100%;
+}
+
+.hero-section {
+    text-align: center;
+    background: #ffffff;
+    padding: 40px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+}
+
+.hero-section h1 {
+    color: #2e7d32;
+    font-size: 2.2em;
+}
+
+.hero-buttons {
+    margin-top: 25px;
+}
+
+.btn-primary {
+    background-color: #2e7d32;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.btn-secondary {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+}
+
+/* GRIGLIA INFORMATIVA */
+.info-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.info-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    flex: 1;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.info-icon {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+    font-size: 0.9em;
+}
+
+/* Card Principale (Per Login, Registrazione, Questionario e Risultati) */
 .card {
     background-color: #ffffff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 35px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 500px;
-    margin-bottom: 20px;
+    max-width: 550px;
+    margin-top: 80px;
+    transition: transform 0.2s ease;
 }
 
 h2, h3 {
-    color: #2e7d32;
+    color: #2d6a4f;
     margin-top: 0;
+    font-weight: 700;
 }
 
 .form-group {
-    margin-bottom: 18px;
+    margin-bottom: 20px;
 }
 
 label {
     display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #2d6a4f;
 }
 
 .note {
     font-size: 0.85em;
-    color: #555555;
-    margin-bottom: 5px;
+    color: #52b788;
+    margin-bottom: 8px;
 }
 
+/* Input e Select Curvati e Moderni */
 input[type="text"], input[type="password"], input[type="number"], select {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #cccccc;
-    border-radius: 5px;
+    padding: 12px;
+    border: 2px solid #b7e4c7;
+    border-radius: 8px;
     box-sizing: border-box;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.3s;
 }
 
+input:focus, select:focus {
+    border-color: #40916c;
+}
+
+/* Pulsanti con Effetto Pressione */
 button {
-    background-color: #2e7d32;
+    background-color: #2d6a4f;
     color: white;
-    padding: 12px;
+    padding: 14px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     width: 100%;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
 }
 
 button:hover {
-    background-color: #1b5e20;
+    background-color: #1b4332;
 }
 
-.error-msg {
-    color: #c62828;
-    font-weight: bold;
+button:active {
+    transform: scale(0.98);
 }
 
+/* Riquadro Risultati */
 .result-box {
-    background-color: #e8f5e9;
-    border-left: 5px solid #2e7d32;
-    padding: 15px;
+    background-color: #d8f3dc;
+    border-left: 6px solid #40916c;
+    padding: 18px;
     margin-top: 20px;
-    border-radius: 4px;
+    border-radius: 8px;
 }
 
 .link-btn {
     display: inline-block;
     margin-top: 15px;
-    color: #2e7d32;
+    color: #2d6a4f;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
+}
+
+.link-btn:hover {
+    text-decoration: underline;
 }
 
 .logout-btn {
-    color: #c62828;
+    color: #d90429;
 }
 
+/* Tabelle */
 table {
     width: 100%;
     border-collapse: collapse;
