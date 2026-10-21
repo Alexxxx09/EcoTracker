@@ -10,17 +10,16 @@
         <h2>Benvenuto, {{ email }}! 🌿</h2>
         <p>Rispondi al questionario per stimare la tua impronta di CO₂ giornaliera.</p>
 
-        <!-- QUESTIONARIO SULLE ABITUDINI -->
         <form action="/index" method="POST">
             
-            <!-- Domanda 1: Numero -->
+            <!-- Domanda 1 -->
             <div class="form-group">
                 <label>1. Spostamenti in Auto</label>
                 <div class="note">(Scrivi un numero: quanti chilometri fai in auto al giorno?)</div>
                 <input type="number" step="0.1" name="km_auto" min="0" value="0" required>
             </div>
 
-            <!-- Domanda 2: Selettore -->
+            <!-- Domanda 2 -->
             <div class="form-group">
                 <label>2. Stile Alimentare</label>
                 <div class="note">(Seleziona dal menu a tendina la tua dieta tipo)</div>
@@ -32,11 +31,28 @@
                 </select>
             </div>
 
-            <!-- Domanda 3: Numero -->
+            <!-- Domanda 3 -->
             <div class="form-group">
                 <label>3. Riscaldamento Domestico</label>
                 <div class="note">(Scrivi un numero: quante ore al giorno è acceso il riscaldamento?)</div>
                 <input type="number" step="0.5" name="ore_riscaldamento" min="0" max="24" value="0" required>
+            </div>
+
+            <!-- Domanda 4 -->
+            <div class="form-group">
+                <label>4. Uso della Plastica Monouso</label>
+                <div class="note">(Seleziona come consumi principalmente l'acqua potabile)</div>
+                <select name="uso_plastica" required>
+                    <option value="borraccia">Acqua del rubinetto, filtrata o borraccia</option>
+                    <option value="monouso">Bottiglie di plastica monouso acquistate</option>
+                </select>
+            </div>
+
+            <!-- Domanda 5 -->
+            <div class="form-group">
+                <label>5. Durata della Doccia</label>
+                <div class="note">(Scrivi un numero: quanti minuti dura in media la tua doccia calda?)</div>
+                <input type="number" step="1" name="minuti_doccia" min="1" max="60" value="5" required>
             </div>
 
             <button type="submit">Calcola Emissioni</button>
