@@ -6,10 +6,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <div class="card">
+    <div class="card" style="max-width: 800px;">
         <h2>Risultati per {{ email }} 🌿</h2>
 
-        <!-- RISULTATO DEL TEST CORRENTE -->
         {% block content %}
         {% if risultato %}
         <div class="result-box">
@@ -19,24 +18,43 @@
                 <li>🚗 Trasporti: {{ risultato.trasporti }} kg</li>
                 <li>🥗 Cibo: {{ risultato.cibo }} kg</li>
                 <li>🔥 Riscaldamento: {{ risultato.casa }} kg</li>
+                <li>🥤 Plastica monouso: {{ risultato.plastica }} kg</li>
+                <li>🚿 Doccia e Acqua calda: {{ risultato.doccia }} kg</li>
             </ul>
             <p>💡 <strong>Commento:</strong> L'ambito in cui consumi di più è <strong>{{ risultato.maggiore }}</strong>.</p>
         </div>
         {% endif %}
 
-        <!-- GRAFICO A BARRE -->
-        {% if grafico %}
-        <div class="chart-box" style="margin-top: 20px; text-align: center;">
-            <h3>Emissioni per categoria</h3>
-            <img src="data:image/png;base64,{{ grafico }}" alt="Grafico a barre delle emissioni di CO2 per categoria" style="max-width: 100%; border-radius: 8px;">
+        <!-- SEZIONE DOPPIO GRAFICO -->
+        <div style="margin-top: 25px;">
+            <p style="text-align: center; font-style: italic; color: #2d6a4f;">
+                 <strong>Analisi Visiva:</strong> Puoi consultare i tuoi dati tramite due rappresentazioni differenti: il grafico a barre per confrontare i chilogrammi di CO₂ oppure il grafico a torta per valutare le percentuali d'impatto.
+            </p>
+
+            <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-top: 15px;">
+                <!-- GRAFICO A BARRE -->
+                {% if grafico_barre %}
+                <div class="chart-box" style="flex: 1; min-width: 300px; text-align: center;">
+                    <img src="data:image/png;base64,{{ grafico_barre }}" alt="Grafico a barre CO2" style="max-width: 100%; border-radius: 8px;">
+                </div>
+                {% endif %}
+
+                <!-- GRAFICO A TORTA -->
+                {% if grafico_torta %}
+                <div class="chart-box" style="flex: 1; min-width: 300px; text-align: center;">
+                    <img src="data:image/png;base64,{{ grafico_torta }}" alt="Grafico a torta CO2" style="max-width: 100%; border-radius: 8px;">
+                </div>
+                {% endif %}
+            </div>
         </div>
-        {% endif %}
         {% endblock %}
 
         <br>
-        <a href="/index" class="link-btn">🔄 Fai un altro test</a> | 
-        <a href="/history" class="link-btn">📜 Vedi la cronologia</a> | 
-        <a href="/logout" class="link-btn logout-btn">Disconnettiti</a>
+        <div style="text-align: center;">
+            <a href="/index" class="link-btn">Fai un altro test</a> | 
+            <a href="/history" class="link-btn">Vedi la cronologia</a> | 
+            <a href="/logout" class="link-btn logout-btn">Disconnettiti</a>
+        </div>
     </div>
 </body>
 </html>
